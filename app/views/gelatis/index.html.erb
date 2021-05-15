@@ -2,30 +2,49 @@
 
 <h1>Gelatis</h1>
 
-<table>
+<% if user_signed_in? %>
+Benvenuto <b><%= current_user.email %></b>!
+<br><%= link_to "Loggautati", destroy_user_session_path, method: :delete %>
+<% end %>
+
+
+<table class="table">
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Ingredienti</th>
-      <th>Calorie</th>
-      <th colspan="3"></th>
+      <th scope="col">Foto</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Ingredienti</th>
+      <th scope="col">Calorie</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @gelatis.each do |gelati| %>
-      <tr>
-        <td><%= gelati.nome %></td>
-        <td><%= gelati.ingredienti %></td>
-        <td><%= gelati.calorie %></td>
-        <td><%= link_to 'Show', gelati %></td>
-        <td><%= link_to 'Edit', edit_gelati_path(gelati) %></td>
-        <td><%= link_to 'Destroy', gelati, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% @gelatis.each do |gelati| %> 
+    <tr>
+      <td>
+        <% if gelati.cover.attached? %>
+        <%= link_to (image_tag url_for(gelati.cover)), gelati %>
+        <% end %>
+      </td>
+    
+    
+      <td><%= gelati.nome %></td>
+    
+    
+      <td><%= gelati.ingredienti %></td>
+    
+    
+      <td><%= gelati.calorie %></td>
+    
+      <td><%= link_to 'Modifica', edit_gelati_path(gelati), class: 'btn btn-primary' %></td>  
+    
+      <td><%= link_to 'Distruggi', gelati, method: :delete, data: { confirm: 'Sei sicuro?' }, class: 'btn btn-danger' %></td>  
+
       </tr>
-    <% end %>
+    <% end %>  
   </tbody>
 </table>
 
+
 <br>
 
-<%= link_to 'New Gelati', new_gelati_path %>
+<%= link_to 'Nuovo Gelato', new_gelati_path, class: 'btn btn-success' %>

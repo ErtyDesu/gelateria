@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <% if @gelati.cover.attached? %>
+  <%= image_tag url_for(@gelati.cover) %>
+  <% end %>
+</p>
+
+<p>
   <strong>Nome:</strong>
   <%= @gelati.nome %>
 </p>
@@ -15,5 +21,5 @@
   <%= @gelati.calorie %>
 </p>
 
-<%= link_to 'Edit', edit_gelati_path(@gelati) %> |
-<%= link_to 'Back', gelatis_path %>
+<%= link_to 'Modifica', edit_gelati_path(@gelati), class: 'btn btn-primary' %> |
+<%= link_to 'Indietro', gelatis_path, class: 'btn btn-primary' %>

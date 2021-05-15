@@ -11,22 +11,45 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+  
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm form-label">
+          <%= form.label :nome, class: 'form-label'%>
+          <%= form.text_field :nome, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm form-label">
+          <%= form.label :ingredienti, class: 'form-label'%>
+          <%= form.text_field :ingredienti, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm form-label">
+          <%= form.label :calorie, class: 'form-label' %>
+          <%= form.number_field :calorie, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm form-label">
+          <%= form.label :cover, class: 'form-label' %>
+          <%= form.file_field :cover, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :ingredienti %>
-    <%= form.text_field :ingredienti %>
-  </div>
 
-  <div class="field">
-    <%= form.label :calorie %>
-    <%= form.number_field :calorie %>
-  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Crea/modifica gelato', class: 'btn btn-primary' %>
   </div>
 <% end %>

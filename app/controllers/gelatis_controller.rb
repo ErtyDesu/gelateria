@@ -1,4 +1,5 @@
 class GelatisController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_gelati, only: %i[ show edit update destroy ]
 
   # GET /gelatis or /gelatis.json
@@ -64,6 +65,6 @@ class GelatisController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gelati_params
-      params.require(:gelati).permit(:nome, :ingredienti, :calorie)
+      params.require(:gelati).permit(:nome, :ingredienti, :calorie, :cover)
     end
 end
