@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @gelati.nome %>
+</p>
+
+<p>
+  <strong>Ingredienti:</strong>
+  <%= @gelati.ingredienti %>
+</p>
+
+<p>
+  <strong>Calorie:</strong>
+  <%= @gelati.calorie %>
+</p>
+
+<%= link_to 'Edit', edit_gelati_path(@gelati) %> |
+<%= link_to 'Back', gelatis_path %>

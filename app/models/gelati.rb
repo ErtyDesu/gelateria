@@ -1,0 +1,2 @@
+class Gelati < ApplicationRecord
+end

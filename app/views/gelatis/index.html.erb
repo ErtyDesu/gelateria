@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gelatis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Ingredienti</th>
+      <th>Calorie</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gelatis.each do |gelati| %>
+      <tr>
+        <td><%= gelati.nome %></td>
+        <td><%= gelati.ingredienti %></td>
+        <td><%= gelati.calorie %></td>
+        <td><%= link_to 'Show', gelati %></td>
+        <td><%= link_to 'Edit', edit_gelati_path(gelati) %></td>
+        <td><%= link_to 'Destroy', gelati, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gelati', new_gelati_path %>
